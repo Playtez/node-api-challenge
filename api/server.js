@@ -15,8 +15,6 @@ server.get("/", logger, (req, res) => {
   res.send(`<h2>appear!</h2>`);
 });
 
-//custom middleware
-
 function logger(req, res, next) {
   const { method, originalUrl } = req;
   console.log(`${method} to ${originalUrl}`, Date.now());
