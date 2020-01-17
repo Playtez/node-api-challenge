@@ -75,6 +75,21 @@ router.put("/:id", (req, res) => {
       });
     });
 });
+router.put("/:id/actions", (req, res) => {
+  const id = req.params.id;
+  const actionChanges = req.body;
+  action
+    .update(id, actionChanges)
+    .then(updated => {
+      res.status(200).json(updated);
+    })
+    .catch(error => {
+      res.status(500).json({
+        errorMessage: "server issue",
+        error
+      });
+    });
+});
 
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
